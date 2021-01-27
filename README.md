@@ -2,7 +2,7 @@
 Pachyderm logging to ClearML. ClearML is a great visualization and reporting framework for machine learning models, but one of the difficulties is keeping up with changing datasets. By using Pachyderm as our execution platform, we can version our executions, code,data, and models while still tracking everything in ClearML. 
 
 <p align="center">
-  <img width="500" src="images/diagram.jpg">
+  <img width="700" src="images/diagram.jpg">
 </p>
 
 ## TLDR; How it works
