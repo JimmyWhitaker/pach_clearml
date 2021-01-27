@@ -1,0 +1,30 @@
+{
+    "pipeline": {
+        "name": "mnist"
+    },
+    "description": "MNIST example logging to ClearML",
+    "input": {
+        "cross": [
+          {
+            "pfs": {
+              "repo": "data",
+              "branch": "master",
+              "glob": "/*"
+            }
+          },
+          {
+            "pfs": {
+              "repo": "config",
+              "branch": "master",
+              "glob": "/*"
+            }
+          }
+        ]
+      },
+    "transform": {
+        "cmd": [
+            "./run.sh"
+        ],
+        "image": "jimmywhitaker/clearml_mnist:dev0.10"
+    }
+}
