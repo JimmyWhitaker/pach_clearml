@@ -10,7 +10,7 @@ This is a simple integration example where we use ClearML for monitoring our job
 ## TLDR; How it works
 
 1. [Spin up Pachyderm](https://hub.pachyderm.com/landing?redirect=%2F) (Using Pachyderm Hub) and connect to it.
-2. [Spin up ClearML]() (Using ClearML Hosted Community Edition)
+2. [Spin up ClearML](https://app.community.clear.ml) (Using ClearML Hosted Community Edition)
 3. [Create a ClearML config](https://allegro.ai/clearml/docs/docs/deploying_clearml/clearml_config_for_clearml_server.html#configuring-clearml-for-your-clearml-server). Copy the config to this directory as `clearml.conf` (this will be copied to a Pachyderm data repository so that it is not stored in the Docker image itself, but this should be changed in the future).
 4. Run the `make all`
 
