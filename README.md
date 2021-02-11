@@ -11,8 +11,12 @@ This is a simple integration example where we use ClearML for monitoring our job
 
 1. [Spin up Pachyderm](https://hub.pachyderm.com/landing?redirect=%2F) (Using Pachyderm Hub) and connect to it.
 2. [Spin up ClearML](https://app.community.clear.ml) (Using ClearML Hosted Community Edition)
-3. [Create a ClearML config](https://allegro.ai/clearml/docs/docs/deploying_clearml/clearml_config_for_clearml_server.html#configuring-clearml-for-your-clearml-server). Copy the config to this directory as `clearml.conf` (this will be copied to a Pachyderm data repository so that it is not stored in the Docker image itself, but this should be changed in the future).
-4. Run the `make all`
+3. [Create a ClearML config](https://allegro.ai/clearml/docs/docs/deploying_clearml/clearml_config_for_clearml_server.html#configuring-clearml-for-your-clearml-server).
+4. Copy the access credentials' `CLEARML_API_ACCESS_KEY` and `CLEARML_API_SECRET_KEY` into the `secrets.json` file. We'll use this file to make a [Pachyderm secret](https://docs.pachyderm.com/latest/reference/pachctl/pachctl_create_secret/). This keeps our access keys from being built into our container or put in plaintext somewhere.
+5. Create the secret with `pachctl create secret -f secrets.json`
+6. Run `make all` to create a data repository and the pipeline. 
+
+Note: At the moment, for simplicity we load the download the data inside the python script and not from the data repository. This saved download and upload times from my local system during development. Thus, to kick off the pipeline, I add an empty file, which is a new commit to Pachyderm. 
 
 ## MNIST example
 
@@ -22,9 +26,9 @@ This is a simple integration example where we use ClearML for monitoring our job
 - If the Data or Pachyderm Pipeline changes, it kicks off a new training process.
 
 
-## Not Supported
+## Not Supported Yet
 
+- Create a more robust example than MNIST.
 - Multi-GPU - ClearML has some really cool features here, but right now Pachyderm is executing the job in a single Pod. 
-
-## To Fix
-- Move config is hardcoded
+- Consistent naming of runs between Pachyderm and ClearML - we would ideally like to have the jobs use the same hash ID. 
+- Add commit or branch information to the model referenced by ClearML

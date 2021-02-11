@@ -1,30 +1,34 @@
 {
-    "pipeline": {
-        "name": "mnist"
-    },
-    "description": "MNIST example logging to ClearML",
-    "input": {
-        "cross": [
-          {
-            "pfs": {
-              "repo": "data",
-              "branch": "master",
-              "glob": "/*"
-            }
-          },
-          {
-            "pfs": {
-              "repo": "config",
-              "branch": "master",
-              "glob": "/*"
-            }
-          }
-        ]
-      },
-    "transform": {
-        "cmd": [
-            "./run.sh"
-        ],
-        "image": "jimmywhitaker/clearml_mnist:dev0.10"
+  "pipeline": {
+    "name": "mnist"
+  },
+  "description": "MNIST example logging to ClearML",
+  "input": {
+    "pfs": {
+      "repo": "data",
+      "branch": "master",
+      "glob": "/*"
     }
+  },
+  "transform": {
+    "cmd": [
+      "/bin/sh"
+    ],
+    "stdin": [
+      "python pytorch_mnist.py --lr 0.1 --save-location /pfs/out"
+    ],
+    "image": "jimmywhitaker/clearml_mnist:dev0.11",
+    "secrets": [
+      {
+        "name": "clearml",
+        "env_var": "CLEARML_API_ACCESS_KEY",
+        "key": "access"
+      },
+      {
+        "name": "clearml",
+        "env_var": "CLEARML_API_SECRET_KEY",
+        "key": "secret"
+      }
+    ]
+  }
 }
