@@ -7,7 +7,7 @@
     "pfs": {
       "repo": "data",
       "branch": "master",
-      "glob": "/*"
+      "glob": "/"
     }
   },
   "transform": {
@@ -15,9 +15,9 @@
       "/bin/sh"
     ],
     "stdin": [
-      "python pytorch_mnist.py --lr 0.1 --save-location /pfs/out"
+      "python pytorch_mnist.py --lr 0.001 --save-location /pfs/out --data-location /pfs/data/"
     ],
-    "image": "jimmywhitaker/clearml_mnist:dev0.11",
+    "image": "jimmywhitaker/clearml_mnist:dev0.12",
     "secrets": [
       {
         "name": "clearml",

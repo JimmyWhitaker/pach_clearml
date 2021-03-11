@@ -3,8 +3,9 @@ PACHCTL := pachctl
 KUBECTL := kubectl
 
 all:
+	python download_mnist.py --data_loacation ./data/
 	$(PACHCTL) create repo data
-	$(PACHCTL) put file data@master:/empty.file -f empty.file
+	cd data && $(PACHCTL) put file -r data@master:/ -f ./MNIST/
 	$(PACHCTL) create pipeline -f mnist.json
 
 clean: 

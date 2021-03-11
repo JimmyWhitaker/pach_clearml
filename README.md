@@ -16,7 +16,7 @@ This is a simple integration example where we use ClearML for monitoring our job
 5. Create the secret with `pachctl create secret -f secrets.json`
 6. Run `make all` to create a data repository and the pipeline. 
 
-Note: At the moment, for simplicity we load the download the data inside the python script and not from the data repository. This saved download and upload times from my local system during development. Thus, to kick off the pipeline, I add an empty file, which is a new commit to Pachyderm. 
+Note: Downloading the data locally and then pushing it to Pachyderm may seem counterintuitive at first. Downloading the data locally and then pushing it to a remote cluster seems like an extra step, especially when dealing with a standard dataset like MNIST. However, if we think about a real world use case where multiple teams may be manipulating the data (removing examples, adding classes, etc.) then having a history for each of these models can be very useful. In most production settings with supervised learning, the [labeling environment can be directly connected to the data repository](https://towardsdatascience.com/versioning-and-labeling-better-together-2dd7d4fe8bd9), automating this step.
 
 ## MNIST example
 

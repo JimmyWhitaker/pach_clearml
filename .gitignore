@@ -1,3 +1,4 @@
 docker-compose.yml
 debug.json
 secrets_real.json
+data/
