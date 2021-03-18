@@ -26,7 +26,7 @@ Note: Downloading the data locally and then pushing it to Pachyderm may seem cou
 - If the Data or Pachyderm Pipeline changes, it kicks off a new training process.
 
 
-## Not Supported Yet
+## Future Goals
 
 - Create a more robust example than MNIST.
 - Multi-GPU - ClearML has some really cool features here, but right now Pachyderm is executing the job in a single Pod. 
