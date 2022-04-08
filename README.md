@@ -9,7 +9,7 @@ This is a simple integration example where we use ClearML for monitoring our job
 
 ## TLDR; How it works
 
-1. [Spin up Pachyderm](https://hub.pachyderm.com/landing?redirect=%2F) (Using Pachyderm Hub) and connect to it.
+1. [Spin up Pachyderm](https://docs.pachyderm.com/latest/getting_started/local_installation/) Use minikube or cloud deployment and connect to it.
 2. [Spin up ClearML](https://app.community.clear.ml) (Using ClearML Hosted Community Edition)
 3. [Create a ClearML config](https://allegro.ai/clearml/docs/docs/deploying_clearml/clearml_config_for_clearml_server.html#configuring-clearml-for-your-clearml-server).
 4. Copy the access credentials' `CLEARML_API_ACCESS_KEY` and `CLEARML_API_SECRET_KEY` into the `secrets.json` file. We'll use this file to make a [Pachyderm secret](https://docs.pachyderm.com/latest/reference/pachctl/pachctl_create_secret/). This keeps our access keys from being built into our container or put in plaintext somewhere.
